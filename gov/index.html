@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Survey Dapp</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="magic1.js"></script>
+        <link rel="stylesheet" href="main.css">
+        <script src="vendor/web3.min.js"></script>
+        <script src="vendor/truffle-contract.min.js"></script>
+        <script src="index.js"></script>
+        <style>
+        
+        </style>
+    </head>
+    <body>
+        <div>
+            <a href="#conductSurvey">
+                <button type="submit">Conduct Survey</button></a>
+            <form onsubmit="">
+                <button type="submit">Take part in Survey</button></form>
+            <form onsubmit="">
+                <button type="submit">View Results</button></form>
+        </div>    
+         
+        <article id="conductSurvey">
+            <form onsubmit="">
+                <label>Survey Id: </label> <input type="text" name="id">
+                <div class="items">
+                    <label id="qlabel">Question :</label>
+                    <textarea name="Quest" id="Quest"></textarea>
+                    <input type="button" value="Add Option" id="addOption">
+                </div>
+                <input type="button" value="Add Question" id="addQ">
+                <button type="submit">Submit</button>
+            </form>
+        </article>
+   
+    </body>
+</html>
+
