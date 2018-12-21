@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Survey</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="setSurveyId()">
+  <center>
+
+    <div id="petTemplate" style="width: 70%;margin-top: 5%;">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <b class="panel-title">Demonetisation</b>
+          </div>
+          <div class="panel-body">
+<!--
+			<br><strong>Survey ID:</strong><span id="surveyID" class="owner">3</span><br/>
+            <br><strong>Proposed By:</strong> <span id="proposedBy" class="owner"> State Government</span><br/>
+            <br><strong>Details:</strong><br> <span class="details"> </span><br/>
+            <br><strong>Survey Questions:</strong><br> <span class="questions"></span><br/>
+            <br><button class="btn btn-primary btn-adopt pull-right" type="button" data-id="0">Details</button>
+-->
+			<table>
+				<tr> <td>Survey ID</td> <td>:-<span id="surveyID">1</span></td> </tr>
+				<tr> <td>Proposed By</td> <td>:-State Government</td> </tr>
+				<tr> <td>Details</td> <td>:-Do you think Demonetisation proved to be useful?</td> </tr>
+				<tr> <td>Options</td> <td>:-
+					<select id="options">
+						<option>Select your answer</option>
+						<option>Yes</option>
+						<option>No</option>
+					</select>
+				 </td> </tr>
+			</table>
+			<br><button id="submit" onclick="submitResponse()" class="btn btn-primary btn-adopt pull-right" type="button">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</center>
+<!--
+  <center>
+    <h4>Enter Refendrum Topic:</h4>
+    <br><input type="text" name="topic">
+</center>
+-->
+
+	<script>
+		function setSurveyId(){
+			console.log("current surveyID is "+localStorage.getItem("surveyID"));
+			document.getElementById("surveyID").innerHTML = localStorage.getItem("surveyID");
+		}
+
+		function submitResponse(){
+			// add to contract ......
+
+
+
+			var surveyID = document.getElementById("surveyID").innerHTML;
+			console.log("response added to contract for survey "+surveyID);
+		}
+	</script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+   <!--<script src="js/app.js"></script>-->
+  </body>
+</html>
