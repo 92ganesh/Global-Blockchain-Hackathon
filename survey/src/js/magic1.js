@@ -5,7 +5,7 @@ $(document).ready(function(){
         $('.items').append('<div>'
                                 +'<label id="qlabel">Question :</label>'
                                 +'<textarea name="Quest" id="Quest"></textarea>'
-                                +'<button class="setQ" onclick="App.setQues(); return false;">confirm Question</button>'
+                                +'<button class="setQ" onclick="App.setQues(); return false;" >confirm Question</button>'
                                 +'<input type="button" value="Add Option" id="addOption">'
                                 +'<input type="button" value="Delete Question" id="deleteQ" name="deleteQ" >'
                             +'</div>');
