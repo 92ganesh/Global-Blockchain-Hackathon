@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Survey Dapp</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/magic1.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body style="font-family:'Trebuchet MS'">
+        <center>
+        <div class="container">
+             <h2 style="color:#4682B4;">Select From:</h2>
+  <hr>  
+  <div class="">
+            <a href="#conductSurvey">
+                <button class="btn btn-basic" type="submit">Conduct Survey</button></a>
+                <br><br>
+            <form onsubmit="">
+                <button class="btn btn-info" type="submit">Take part in Survey</button></form>
+                <br>
+            <form onsubmit="">
+                <button class="btn btn-success" type="submit">View Results</button></form>
+        </div>  
+    <hr>
+
+  <h2 style="color:#3CB371;">Create Survey form:</h2>
+  <hr>
+  <article id="conductSurvey">
+  <form class="form-horizontal" onsubmit="">
+    <div class="form-group">
+      <label class="control-label col-sm-2">Survey Id:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Survey Id" name="id">
+      </div>
+    </div>
+    <div id="addQ">
+    <div class="form-group items">
+      <label class="control-label col-sm-2" id="qlabel">Question:</label>
+      <div class="col-sm-8" >          
+        <textarea class="form-control" id="Quest" placeholder="Enter Question" name="Quest"></textarea>
+      </div>
+      <input type="button" class="btn btn-default"  value="Add Option" id="addOption">
+    </div>
+    <div id="optpanel"></div><br>
+  </div>
+
+
+     <input type="button" class="btn btn-basic" value="Add Question">
+   <br><hr>
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+</div>
+  </form>
+</article>
+</div>
+
+
+</center>
+</body>
+</html>
+
