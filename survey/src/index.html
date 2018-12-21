@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Survey Dapp</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
+  </head>
+  <body>
+      <div id="hell"></div><br>
+      <div id="hello"></div>
+      <div id="survey"></div>
+        <div id="question">
+          <div id="option">
+
+          </div>
+      </div>
+
+    <div>
+            <a href="#conductSurvey">
+                <button type="submit">Conduct Survey</button></a>
+            <a href="#">
+                <button type="submit">Take part in Survey</button></a>
+            <form onsubmit="">
+                <button type="submit">View Results</button></form>
+      </div>    
+      <!--conduct survey-->   
+        
+            <form onsubmit="App.conductSurvey(); return false;">
+                <label>Survey Id: </label> <input type="text" name="id" id="surveyId">
+                <label>Survey Name: </label> <input type="text" name="name" id="surveyName">
+                <div class="items"> <!--Questions will apend-->
+                </div>
+                <input type="button" value="Add Question" id="addQ">
+                <button type="submit">Submit</button>
+            </form>
+        
+      <!--display survey questions -->
+      <div id="survey"></div>
+      <div id="question">
+        <div id="option">
+        </div>
+      </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/magic1.js"></script>
+    <link rel="stylesheet" href="main.css">
+  </body>
+</html>
