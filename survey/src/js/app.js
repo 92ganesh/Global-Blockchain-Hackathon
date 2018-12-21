@@ -1,3 +1,28 @@
+//variables
+
+var numberOfQuestion = 0;
+var questionValue = [];
+
+/*
+
+$(document).ready(function(){
+
+  numberOfQuestion = 1;
+  var empty = [];
+
+  $(".setQ").click(function(){
+
+    numberOfQuestion ++;
+    var temp = $("#Quest").val();
+    questionValue = empty.concat(temp);
+    //rub below line
+    document.write("question: " + questionValue[numberOfQuestion]);
+  });
+  
+}); */
+
+
+//main
 var surveyId = 1 ;
 App = {
   web3Provider: null,
@@ -59,26 +84,48 @@ App = {
     });  //first call back func
   }, //render end
 
-  //conduct survey
+  //conduct survey //data read   questionValue[numberOfQuestion]
   conductSurvey: function() {
     var surveyInstance;
     surveyId ++; 
-    var surveyName = $('#surveyName').val();
-    var numberOfQuestion = 2;
+    var surveyName = $('#surveyName').val(); //take data from html
+    
     App.contracts.Survey.deployed().then(function(instance) {
       surveyInstance = instance;
-      return surveyInstance.createSurvey(surveyId, surveyName, numberOfQuestion); // 2 is temporary here 
-    }).then(function() {
-      var q;
-      for(q = 1; q <= numberOfQuestion ; q++){
-        var numberOfOption = 2;
-        var questionValue = $('#Quest').val();
-        surveyInstance.createQuestion(surveyId, q, questionValue, numberOfOption);
-      }
+
+      //var numberOfQuestion = 2; //changes reqd *
+      surveyInstance.createSurvey(surveyId, surveyName, numberOfQuestion); // 2 is temporary here 
+      
+      for(var questionNoTrack = 1; questionNoTrack < numberOfQuestion ; questionNoTrack++){
+       // var questionValue = $('#Quest').val(); //take data from html
+        //var qValue = questionValue[numberOfQuestion] ;
+         var qValue = "accha?"; 
+        var numberOfOption = 2; //changes reqd *
+        surveyInstance.createQuestion(surveyId, questionNoTrack, qValue, numberOfOption);
+        
+        for(var optionTrack = 1; optionTrack<=numberOfOption ; optionTrack++){
+          //var optionValue = $('#option').val(); //take data from html
+          var optionValue = "gudiya";
+          surveyInstance.createOption(optionTrack, optionValue, questionNoTrack, surveyId);
+        } //inner for end
+      } //for end
     }).catch(function(err) {
       console.error(err);
     });
   }//conduct survey end
+
+
+  //
+ /* setQues: function(){
+    //App.contracts.Survey.deployed().then(function(instance) {
+      numberOfQuestion ++;
+      var temp = $("#Quest").val();
+      questionValue = empty.concat(temp);
+      //rub below line
+      document.write("question: " + questionValue[numberOfQuestion]);
+    //});
+  }*/
+  //
 
 };//App end
 
