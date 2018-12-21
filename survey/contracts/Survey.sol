@@ -21,11 +21,13 @@ contract Survey {
   }
   mapping(uint => survey) surveys;   
     
-  uint numberOfSurvey ;
+  uint numberOfSurvey  ;
   constructor() public {
+    numberOfSurvey = 0 ;
   }
 
-  function createOption(uint _optionId, string memory _optionValue, uint _questionId, uint _surveyId) public{
+  function createOption(uint _optionId, string memory _optionValue, uint _questionId, uint _surveyId) 
+  public{
     surveys[_surveyId].questions[_questionId].options[_optionId] = option(_optionId, _optionValue, 0); 
   }
 
@@ -62,9 +64,4 @@ contract Survey {
   function harshu() public pure returns (string memory){
     return "Hi Harshita";
   }
-  function good(uint id) public pure returns (uint){
-    return (id);
-  
-  }
-
 }
