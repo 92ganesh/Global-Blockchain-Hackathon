@@ -23,8 +23,8 @@
       </div>
 
     <div>
-            <a href="#conductSurvey">
-                <button type="submit">Conduct Survey</button></a>
+            <form onsubmit="App.initVar(); return false">
+                <button type="submit">Conduct Survey</button></form>
             <a href="#">
                 <button type="submit">Take part in Survey</button></a>
             <form onsubmit="">
@@ -33,7 +33,7 @@
       <!--conduct survey-->   
         
             <form onsubmit="App.conductSurvey(); return false;">
-                <label>Survey Id: </label> <input type="text" name="id" id="surveyId">
+                
                 <label>Survey Name: </label> <input type="text" name="name" id="surveyName">
                 <div class="items"> <!--Questions will apend-->
                 </div>

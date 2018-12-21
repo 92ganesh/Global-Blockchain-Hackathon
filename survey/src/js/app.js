@@ -1,29 +1,7 @@
-//variables
-
-var numberOfQuestion = 0;
-var questionValue = [];
-
-/*
-
-$(document).ready(function(){
-
-  numberOfQuestion = 1;
-  var empty = [];
-
-  $(".setQ").click(function(){
-
-    numberOfQuestion ++;
-    var temp = $("#Quest").val();
-    questionValue = empty.concat(temp);
-    //rub below line
-    document.write("question: " + questionValue[numberOfQuestion]);
-  });
-  
-}); */
-
-
 //main
-var surveyId = 1 ;
+var surveyId = 0 ;
+var numberOfQuestion;
+var questionValue = [];
 App = {
   web3Provider: null,
   contracts: {},
@@ -56,9 +34,7 @@ App = {
       return App.render();
     });
   },
-////upto here untouch code
 
-//edit from here
   render: function() {
     
     // Load account data
@@ -77,14 +53,27 @@ App = {
       }).then(function(c) {
         var candidatesResults = $("#hello");
         candidatesResults.empty();
-        candidatesResults.append("hi");
-        var a = c;
-        var b = "<h1>"+a+"</h1>";
-        candidatesResults.append(b);
+        candidatesResults.append(c);
     });  //first call back func
   }, //render end
 
-  //conduct survey //data read   questionValue[numberOfQuestion]
+  initVar: function(){
+    numberOfQuestion = 0;
+    surveyId = 0; 
+  },
+
+  setQues: function(){
+    App.contracts.Survey.deployed().then(function(instance) {
+      numberOfQuestion ++;
+      var empty = ["useless"];
+      var temp = $("#Quest").val();
+      questionValue = empty.concat(temp);
+      console.log(questionValue);
+      //rub below line
+      //document.write("question: " + questionValue[numberOfQuestion]);
+    });
+  },
+  
   conductSurvey: function() {
     var surveyInstance;
     surveyId ++; 
@@ -93,18 +82,16 @@ App = {
     App.contracts.Survey.deployed().then(function(instance) {
       surveyInstance = instance;
 
-      //var numberOfQuestion = 2; //changes reqd *
-      surveyInstance.createSurvey(surveyId, surveyName, numberOfQuestion); // 2 is temporary here 
+      surveyInstance.createSurvey(surveyId, surveyName, numberOfQuestion); 
       
-      for(var questionNoTrack = 1; questionNoTrack < numberOfQuestion ; questionNoTrack++){
-       // var questionValue = $('#Quest').val(); //take data from html
-        //var qValue = questionValue[numberOfQuestion] ;
-         var qValue = "accha?"; 
+      for(var questionNoTrack = 1; questionNoTrack <= numberOfQuestion ; questionNoTrack++){
+       
+        var qValue = questionValue[numberOfQuestion] ;
+        console.log(qValue);
         var numberOfOption = 2; //changes reqd *
         surveyInstance.createQuestion(surveyId, questionNoTrack, qValue, numberOfOption);
         
         for(var optionTrack = 1; optionTrack<=numberOfOption ; optionTrack++){
-          //var optionValue = $('#option').val(); //take data from html
           var optionValue = "gudiya";
           surveyInstance.createOption(optionTrack, optionValue, questionNoTrack, surveyId);
         } //inner for end
@@ -113,19 +100,6 @@ App = {
       console.error(err);
     });
   }//conduct survey end
-
-
-  //
- /* setQues: function(){
-    //App.contracts.Survey.deployed().then(function(instance) {
-      numberOfQuestion ++;
-      var temp = $("#Quest").val();
-      questionValue = empty.concat(temp);
-      //rub below line
-      document.write("question: " + questionValue[numberOfQuestion]);
-    //});
-  }*/
-  //
 
 };//App end
 
