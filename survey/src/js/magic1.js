@@ -2,16 +2,17 @@ $(document).ready(function(){
 
     //add Question
     $('body').on('click','#addQ',function(){
-        $('.items').append('<div>'
-                                +'<label id="qlabel">Question :</label>'
-                                +'<textarea name="Quest" id="Quest"></textarea>'
-                                +'<button class="setQ" onclick="App.setQues(); return false;" >confirm Question</button>'
-                                +'<input type="button" value="Add Option" id="addOption">'
-                                +'<input type="button" value="Delete Question" id="deleteQ" name="deleteQ" >'
-                            +'</div>');
+        var totalQuestions = document.getElementsByName("Quest").length;
+        var currentId = totalQuestions+1;
+        var st = '<div>'
+        +'<label id="qlabel">Question :</label>'
+        +'<textarea name="Quest" id="Q'+currentId+'">Enter Here</textarea>'
+        +'<button class="setQ" onclick="App.setQues(); return false;" >confirm Question</button>'
+        +'<input type="button" value="Add Option" id="addOption">'
+        +'<input type="button" value="Delete Question" id="deleteQ" name="deleteQ" >'
+        +'</div>';
 
-        
-       
+        document.getElementById("questionList").innerHTML = document.getElementById("questionList").innerHTML+st;
     });
 
     //delete Complete Question                    

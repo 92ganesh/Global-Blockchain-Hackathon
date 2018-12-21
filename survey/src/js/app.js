@@ -1,7 +1,7 @@
 //main
 var surveyId = 0 ;
 var numberOfQuestion;
-var questionValue = [];
+var questionValue = ['useless'];
 App = {
   web3Provider: null,
   contracts: {},
@@ -63,15 +63,20 @@ App = {
   },
 
   setQues: function(){
-    App.contracts.Survey.deployed().then(function(instance) {
+     App.contracts.Survey.deployed().then(function(instance) {
       numberOfQuestion ++;
-      var empty = ["useless"];
-      var temp = $("#Quest").val();
-      questionValue = empty.concat(temp);
+      //var empty = ["useless"];
+      var tempId =  document.getElementsByName("Quest").length;
+      var curr = "Q"+tempId;
+      console.log(curr);
+      var temp = document.getElementById(curr).value                 //$("#tempId").val();// "'+tempId+'"
+      questionValue =  questionValue.concat(temp)  ///empty.concat(temp);
       console.log(questionValue);
       //rub below line
       //document.write("question: " + questionValue[numberOfQuestion]);
+
     });
+    
   },
   
   conductSurvey: function() {
@@ -86,7 +91,7 @@ App = {
       
       for(var questionNoTrack = 1; questionNoTrack <= numberOfQuestion ; questionNoTrack++){
        
-        var qValue = questionValue[numberOfQuestion] ;
+        var qValue = questionValue[questionNoTrack] ;
         console.log(qValue);
         var numberOfOption = 2; //changes reqd *
         surveyInstance.createQuestion(surveyId, questionNoTrack, qValue, numberOfOption);
