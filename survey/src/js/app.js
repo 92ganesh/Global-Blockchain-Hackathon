@@ -2,6 +2,7 @@
 var surveyId = 0 ;
 var numberOfQuestion;
 var questionValue = ['useless'];
+var optionValueArr = ['useless'];
 App = {
   web3Provider: null,
   contracts: {},
@@ -66,12 +67,27 @@ App = {
      App.contracts.Survey.deployed().then(function(instance) {
       numberOfQuestion ++;
       //var empty = ["useless"];
-      var tempId =  document.getElementsByName("Quest").length;
-      var curr = "Q"+tempId;
+      var tempId =  document.getElementsByName("Quest")[0].id;
+      var curr = ""+tempId;
       console.log(curr);
-      var temp = document.getElementById(curr).value                 //$("#tempId").val();// "'+tempId+'"
-      questionValue =  questionValue.concat(temp)  ///empty.concat(temp);
+      var temp = document.getElementById(curr).value             
+      questionValue =  questionValue.concat(temp)  
       console.log(questionValue);
+
+      // set options in the array
+      optionValueArr[numberOfQuestion] = new Array();
+      var totalOptions = document.getElementsByName("optionsForSurvey");
+      for(var optionTrack = 0; optionTrack<totalOptions.length ; optionTrack++){
+          var opName = totalOptions[optionTrack].value;
+          optionValueArr[numberOfQuestion][Number(optionTrack)+1] = opName;
+      }
+  /*    for(var r = 1; r<totalOptions.length ; r++){
+        for(var c = 1; c<totalOptions[r].length ; c++){
+            console.log(optionValueArr[r][c]);
+         } 
+         console.log("--");
+      }
+  */    
       //rub below line
       //document.write("question: " + questionValue[numberOfQuestion]);
 
@@ -96,8 +112,8 @@ App = {
         var numberOfOption = 2; //changes reqd *
         surveyInstance.createQuestion(surveyId, questionNoTrack, qValue, numberOfOption);
         
-        for(var optionTrack = 1; optionTrack<=numberOfOption ; optionTrack++){
-          var optionValue = "gudiya";
+        for(var optionTrack = 1; optionTrack<optionValueArr[questionNoTrack].length ; optionTrack++){
+          var optionValue = optionValueArr[questionNoTrack][optionTrack];
           surveyInstance.createOption(optionTrack, optionValue, questionNoTrack, surveyId);
         } //inner for end
       } //for end
