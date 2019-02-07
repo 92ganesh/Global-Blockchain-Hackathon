@@ -1,37 +1,27 @@
-## Welcome to GitHub Pages
+# Survey Dapp
+The project is built for direct communication between the government and citizens with the help of survey.The survey contains the questions with options form which
+is filled by the citizens.After successful submission of the form it will be analysed to find the people's common opinion for the given query.This is then conveyed 
+with the government.
 
-You can use the [editor on GitHub](https://github.com/92ganesh/Global-Blockchain-Hackathon/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Key Features:
+- There is no third party involment i.e. the citizens can directly communicate with government.
+- The common issues appears at the top hence they are handled first.
+- The survey can be made for from small area to the complete nation.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Tech Stack
+- Solidity language for business logic and database
+- HTML, CSS, Bootstrap for frontend UI
+- JavaScript for client side scripting
 
-### Markdown
+## Prerequisites
+- [Nodejs](https://nodejs.org/en/ "Nodejs")
+- [Ganache](https://truffleframework.com/ganache "Ganache")
+- [Metamask Extension](https://metamask.io/ "Metamask Extension")
+- **Truffle Framework** - Run '**npm install -g truffle**' in command prompt
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/92ganesh/Global-Blockchain-Hackathon/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## How to run
+1.  Open folder **finalOne** in any Editor.
+2.  Open your command prompt and run it as the administrator
+3.  Go to the project location via the command prompt and run the command **truffle migrate --reset** for deploying the smart contracts on your local blockchain
+4.  Finally run the command **npm run dev** for running the application on lite server.
+5.  Access the website on localhost
