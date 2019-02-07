@@ -14,9 +14,9 @@ with the government.
 - JavaScript for client side scripting
 
 ## Prerequisites
-- [Nodejs] (https://nodejs.org/en/ "Nodejs")
-- [Ganache] (https://truffleframework.com/ganache "Ganache")
-- [Metamask Extension] (https://metamask.io/ "Metamask Extension")
+- [Nodejs](https://nodejs.org/en/ "Nodejs")
+- [Ganache](https://truffleframework.com/ganache "Ganache")
+- [Metamask Extension](https://metamask.io/ "Metamask Extension")
 - **Truffle Framework** - Run 'npm install -g truffle' in commond prompt
 
 ## How to run
