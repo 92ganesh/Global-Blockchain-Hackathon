@@ -17,7 +17,7 @@ with the government.
 - [Nodejs](https://nodejs.org/en/ "Nodejs")
 - [Ganache](https://truffleframework.com/ganache "Ganache")
 - [Metamask Extension](https://metamask.io/ "Metamask Extension")
-- **Truffle Framework** - Run 'npm install -g truffle' in commond prompt
+- **Truffle Framework** - Run '**npm install -g truffle**' in command prompt
 
 ## How to run
 1.  Open folder **finalOne** in any Editor.
