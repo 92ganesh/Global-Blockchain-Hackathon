@@ -9,14 +9,10 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
    
   </head>
-  <body style="font-family:'Trebuchet MS'">
-    <center>
-    <div class="container">
+  <body>
       <div id="hell"></div><br>
       <div id="hello"></div>
       <div id="survey"></div>
@@ -26,36 +22,26 @@
           </div>
       </div>
 
-      <h2 style="color:#4682B4;">Select From:</h2>
-  <hr>  
     <div>
             <form onsubmit="App.initVar(); return false">
-                <button class="btn btn-basic" type="submit">Conduct Survey</button></form><br>
+                <button type="submit">Conduct Survey</button></form>
             <a href="#">
-                <button class="btn btn-info" type="submit">Take part in Survey</button></a><br><br>
+                <button type="submit">Take part in Survey</button></a>
             <form onsubmit="">
-                <button class="btn btn-primary" type="submit">View Results</button></form><br>
+                <button type="submit">View Results</button></form>
       </div>    
       <!--conduct survey-->   
-          <hr>
-
-  <h2 style="color:#3CB371;">Create Survey form:</h2>
-  <hr>
+        
             <form onsubmit="App.conductSurvey(); return false;">
-                <div class="form-group">
-                <label class="control-label col-sm-2">Survey Name: </label> 
-                <div class="col-sm-10">
-                <input class="form-control col-sm-8" type="text" name="name" id="surveyName">
-                </div>
-              </div>
+                
+                <label>Survey Name: </label> <input type="text" name="name" id="surveyName">
                 <div class="items"> <!--Questions will apend-->
                   <p id="questionList">
                   
                   </p>
                 </div>
-                <br><br>
-                <input type="button" class="btn btn-basic pull-right" value="Add Question" id="addQ"><br><br>
-                <button class="btn btn-success" type="submit">Submit</button>
+                <input type="button" value="Add Question" id="addQ">
+                <button type="submit">Submit</button>
             </form>
         
       <!--display survey questions -->
@@ -76,7 +62,5 @@
     <script src="js/app.js"></script>
     <script src="js/magic1.js"></script>
     <link rel="stylesheet" href="main.css">
-  </div>
-  </center>
   </body>
 </html>
